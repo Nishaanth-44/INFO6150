@@ -29,7 +29,7 @@ router.put('/edit', async function(req, res, next) {
     const userA = req.body;
     let editUser = await user.where("email").equals(userA.email).findOne();
     if(editUser != null){
-      editUser.name = userA.name;
+      editUser.fullname = userA.fullname;
       editUser.password = userA.password;
     }else{
       res.send({message: "User with the provided email ID is not available, please check the email and try again." , userA});
